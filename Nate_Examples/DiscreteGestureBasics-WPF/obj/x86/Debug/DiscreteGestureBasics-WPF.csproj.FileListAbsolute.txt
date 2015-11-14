@@ -1,0 +1,1 @@
+C:\Users\nwinters\Documents\ReKinect\ReKinect\Nate_Examples\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
