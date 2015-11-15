@@ -19,7 +19,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     public class GestureDetector : IDisposable
     {
         /// <summary> Path to the gesture database that was trained with VGB </summary>
-        private readonly string gestureDatabase = @"Database\Seated.gbd";
+        private readonly string gestureDatabase = @"Database\ReKinectV1.gbd";
 
         /// <summary> Name of the discrete gesture in the database that we want to track </summary>
         //private readonly string seatedGestureName = "Seated";
@@ -29,6 +29,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         /// <summary> Gesture frame reader which will handle gesture events coming from the sensor </summary>
         private VisualGestureBuilderFrameReader vgbFrameReader = null;
+
+        public int num_gestures_detected;
 
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
@@ -157,6 +159,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// <param name="e">event arguments</param>
         private void Reader_GestureFrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
+            this.num_gestures_detected = 0;
             VisualGestureBuilderFrameReference frameReference = e.FrameReference;
             using (VisualGestureBuilderFrame frame = frameReference.AcquireFrame())
             {
@@ -179,12 +182,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                 {
                                     // update the GestureResultView object with new gesture result values
                                      this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
+                                    if (result.Detected && result.Confidence > .3)
+                                        this.num_gestures_detected++;
                                 }
                             }
                         }
                     }
                 }
             }
+            // make call to change background with num_detected as a parameter
+
         }
 
 

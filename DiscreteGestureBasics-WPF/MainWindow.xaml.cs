@@ -21,6 +21,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     using System.Windows.Controls;
     using Microsoft.Kinect;
     using Microsoft.Kinect.VisualGestureBuilder;
+    using System.Windows.Media;
 
     /// <summary>
     /// Interaction logic for the MainWindow
@@ -208,6 +209,22 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                             this.gestureDetector.IsPaused = trackingId == 0;
                         }
                     }
+                }
+                int num_detected = this.gestureDetector.num_gestures_detected;
+                switch (num_detected)
+                {
+                    case 0:
+                        this.contentGrid.Background = new SolidColorBrush(Colors.LawnGreen);
+                        break;
+                    case 1:
+                        this.contentGrid.Background = new SolidColorBrush(Colors.Cornsilk);
+                        break;
+                    case 2:
+                        this.contentGrid.Background = new SolidColorBrush(Colors.Coral);
+                        break;
+                    case 3:
+                        this.contentGrid.Background = new SolidColorBrush(Colors.Tomato);
+                        break;
                 }
             }
         }
