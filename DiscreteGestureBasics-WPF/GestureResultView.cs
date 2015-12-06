@@ -26,6 +26,12 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         /// <summary> True, if the discrete gesture is currently being detected </summary>
         private bool detected = false;
+        private int num_touchingface = 0;
+        private int num_leaning = 0;
+        private int num_frames = 0;
+        private float percent_touchingface = 0.0f;
+        private float percent_leaning = 0.0f;
+        private float overall_score = 0.0f;
 
         /// <summary> True, if the body is currently being tracked </summary>
         private bool isTracked = false;
@@ -42,7 +48,12 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             this.BodyIndex = bodyIndex;
             this.IsTracked = isTracked;
             this.Detected = detected;
+            this.Num_TouchingFace = 0;
+            this.Num_Leaning = 0;
+            this.Percent_TouchingFace = 0;
+            this.Num_Frames = 0;
             this.Confidence = confidence;
+            this.Overall_Score = 0;
         }
 
         /// <summary>
@@ -111,6 +122,108 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
         }
 
+        public int Num_TouchingFace
+        {
+            get
+            {
+                return this.num_touchingface;
+            }
+
+            private set
+            {
+                if (this.num_touchingface != value)
+                {
+                    this.num_touchingface = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int Num_Leaning
+        {
+            get
+            {
+                return this.num_leaning;
+            }
+
+            private set
+            {
+                if (this.num_leaning != value)
+                {
+                    this.num_leaning = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Percent_TouchingFace
+        {
+            get
+            {
+                return (int)this.percent_touchingface;
+            }
+
+            private set
+            {
+                if (this.percent_touchingface != value)
+                {
+                    this.percent_touchingface = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Percent_Leaning
+        {
+            get
+            {
+                return (int)this.percent_leaning;
+            }
+
+            private set
+            {
+                if (this.percent_leaning != value)
+                {
+                    this.percent_leaning = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Overall_Score
+        {
+            get
+            {
+                return (int)this.overall_score;
+            }
+
+            private set
+            {
+                if (this.overall_score != value)
+                {
+                    this.overall_score = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int Num_Frames
+        {
+            get
+            {
+                return this.num_frames;
+            }
+
+            private set
+            {
+                if (this.num_frames != value)
+                {
+                    this.num_frames = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
         /// <summary> 
         /// Gets a float value which indicates the detector's confidence that the gesture is occurring for the associated body 
         /// </summary>
@@ -138,7 +251,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// <param name="isBodyTrackingIdValid">True, if the body associated with the GestureResultView object is still being tracked</param>
         /// <param name="isGestureDetected">True, if the discrete gesture is currently detected for the associated body</param>
         /// <param name="detectionConfidence">Confidence value for detection of the discrete gesture</param>
-        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence)
+        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence, int frames, int touchingface, int leaning)
         {
             this.IsTracked = isBodyTrackingIdValid;
             this.Confidence = 0.0f;
@@ -150,6 +263,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             else
             {
                 this.Detected = isGestureDetected;
+                this.Num_Frames = frames;
+                this.Num_TouchingFace = touchingface;
+                this.Num_Leaning = leaning;
+                if (this.Num_Frames != 0)
+                {
+                    this.Percent_TouchingFace = 100 * ((float)this.Num_TouchingFace / (float)this.Num_Frames);
+                    this.Percent_Leaning = 100 * ((float)this.Num_Leaning / (float)this.Num_Frames);
+                    this.Overall_Score = 100 - ((this.Percent_Leaning + this.Percent_TouchingFace) / 2);
+                }
+
             }
         }
 

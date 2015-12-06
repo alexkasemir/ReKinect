@@ -31,6 +31,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private VisualGestureBuilderFrameReader vgbFrameReader = null;
 
         public int num_gestures_detected;
+        public int num_frames_leaning = 0;
+        public int num_frames_touchingface = 0;
+        public int num_frames = 0;
 
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
@@ -160,6 +163,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private void Reader_GestureFrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
             this.num_gestures_detected = 0;
+
             VisualGestureBuilderFrameReference frameReference = e.FrameReference;
             using (VisualGestureBuilderFrame frame = frameReference.AcquireFrame())
             {
@@ -181,9 +185,20 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                 if (result != null)
                                 {
                                     // update the GestureResultView object with new gesture result values
-                                     this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
+                                    this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence, this.num_frames, this.num_frames_touchingface, this.num_frames_leaning);
+                                    this.num_frames++;
                                     if (result.Detected && result.Confidence > .3)
+                                    {
                                         this.num_gestures_detected++;
+                                        if (gesture.Name == "TouchingFace")
+                                        {
+                                            this.num_frames_touchingface++;
+                                        }
+                                        if (gesture.Name == "Leaning")
+                                        {
+                                            this.num_frames_leaning++;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -203,7 +218,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private void Source_TrackingIdLost(object sender, TrackingIdLostEventArgs e)
         {
             // update the GestureResultView object to show the 'Not Tracked' image in the UI
-             this.GestureResultView.UpdateGestureResult(false, false, 0.0f);
+             this.GestureResultView.UpdateGestureResult(false, false, 0.0f, 0, 0, 0);
         }
     }
 }
