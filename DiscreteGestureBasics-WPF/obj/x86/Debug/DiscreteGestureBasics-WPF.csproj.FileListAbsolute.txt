@@ -19,3 +19,6 @@ C:\Users\nwinters\Documents\ReKinect\ReKinect\DiscreteGestureBasics-WPF\obj\x86\
 C:\Users\nwinters\Documents\ReKinect\ReKinect\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.csproj.GenerateResource.Cache
 C:\Users\nwinters\Documents\ReKinect\ReKinect\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
 C:\Users\nwinters\Documents\ReKinect\ReKinect\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Michele\Documents\Visual Studio 2015\Projects\ReKinect\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Michele\Documents\Visual Studio 2015\Projects\ReKinect\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Michele\Documents\Visual Studio 2015\Projects\ReKinect\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb

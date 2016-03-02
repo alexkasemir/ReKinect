@@ -271,6 +271,36 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     this.Percent_TouchingFace = 100 * ((float)this.Num_TouchingFace / (float)this.Num_Frames);
                     this.Percent_Leaning = 100 * ((float)this.Num_Leaning / (float)this.Num_Frames);
                     this.Overall_Score = 100 - ((this.Percent_Leaning + this.Percent_TouchingFace) / 2);
+                    /// This is not where i want to do this but we dont have state established in the application yet
+                    /// we will send the data to the database after the interview is "done"
+                    /*
+                    string connetionString = null;
+                    SqlConnection cnn ;
+			        var connetionString = "Server=tcp:podium1.database.windows.net,1433;Database=PodiumScoreData;User ID=podium@podium1;Password=i will add once i know how to hide on github;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+                    var cnn = new SqlConnection(connetionString);
+                    try
+                    {
+                        cnn.Open();
+
+                        var cmd = cnn.CreateCommand();
+                        cmd.CommandText = @"
+                            INSERT Users.ScoreData (Name, Score)
+                            OUTPUT INSERTED.DataID
+                            VALUES (@Name, @Score)";
+                        cmd.Parameters.AddWithValue("@Name", "Kaz");
+                        cmd.Parameters.AddWithValue("@Score", this.OverallScore);
+
+                        int insertedUserScoreID = (int)cmd.ExecuteScalar();
+
+                        
+                        MessageBox.Show ("Connection Open!... ");
+                        cnn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Can not open connection ! ");
+                    }
+                    */
                 }
 
             }
