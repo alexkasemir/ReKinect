@@ -284,11 +284,11 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
                         var cmd = cnn.CreateCommand();
                         cmd.CommandText = @"
-                            INSERT Users.ScoreData (Name, Score)
-                            OUTPUT INSERTED.DataID
-                            VALUES (@Name, @Score)";
-                        cmd.Parameters.AddWithValue("@Name", "Kaz");
-                        cmd.Parameters.AddWithValue("@Score", this.OverallScore);
+                            INSERT PodiumKinect.Users (name, score)
+                            OUTPUT INSERTED.id
+                            VALUES (@name, @score)";
+                        cmd.Parameters.AddWithValue("@name", "Kaz");
+                        cmd.Parameters.AddWithValue("@score", this.OverallScore);
 
                         int insertedUserScoreID = (int)cmd.ExecuteScalar();
 

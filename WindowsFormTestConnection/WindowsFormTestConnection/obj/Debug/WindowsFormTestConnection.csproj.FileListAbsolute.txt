@@ -1,0 +1,8 @@
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\bin\Debug\WindowsFormTestConnection.exe.config
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\bin\Debug\WindowsFormTestConnection.exe
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\bin\Debug\WindowsFormTestConnection.pdb
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\obj\Debug\WindowsFormTestConnection.csprojResolveAssemblyReference.cache
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\obj\Debug\WindowsFormTestConnection.Properties.Resources.resources
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\obj\Debug\WindowsFormTestConnection.csproj.GenerateResource.Cache
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\obj\Debug\WindowsFormTestConnection.exe
+c:\users\michele\documents\visual studio 2015\Projects\WindowsFormTestConnection\WindowsFormTestConnection\obj\Debug\WindowsFormTestConnection.pdb
