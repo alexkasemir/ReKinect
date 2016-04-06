@@ -36,6 +36,9 @@
             /// <summary> Current status text to display </summary>
             private string statusText = null;
 
+            private string[] questions = new string[] { "Hello?", "What?", "Am?", "I?", "Doing?", "Here?" };
+            private int question_index;
+
             /// <summary> List of gesture detectors, there will be one detector created for each potential body (max of 6) </summary>
             private GestureDetector gestureDetector = null;
 
@@ -45,6 +48,7 @@
 
             public InterviewWindow()
             {
+                question_index = 0;
 
                 timer = new DispatcherTimer();
                 timer.Interval = TimeSpan.FromSeconds(1);
@@ -263,5 +267,36 @@
                     }
                 }
             }
+
+
+
+        private void button_end_interview_click(object sender, RoutedEventArgs e)
+        {
+            ScoreWindow window = new ScoreWindow();
+            window.Width = this.ActualWidth;
+            window.Height = this.ActualHeight;
+            if (this.WindowState == WindowState.Maximized)
+            {
+                window.WindowState = WindowState.Maximized;
+            }
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.setScore(this.gestureDetector.GestureResultView.Overall_Score);
+            this.Close();
+            window.Show();
+        }
+
+        private void button_next_question_click(object sender, RoutedEventArgs e)
+        {
+            question_index++;
+            if (question_index == questions.Length)
+            {
+                this.button_end_interview_click(this, null);
+            }
+            else
+            {
+                //question_index = question_index % questions.Length;
+                this.label.Content = questions[question_index];
+            }
         }
     }
+}

@@ -12,13 +12,14 @@
         <Grid Name="main" Width="525" Height="350">
             <Rectangle x:Name="rect_feedback" Fill="Black" Margin="-1047.714,-938.636,-1044.059,-976.124" Opacity="0.4"/>
             <Rectangle x:Name="rect_screen" Fill="White" Margin="0,28.103,0,-356.217"/>
-            <Image x:Name="image_interviewer" Margin="153.056,46.206,153.214,85.064" Source="Image1.png" Stretch="Fill"/>
-            <Label x:Name="label" Content="What are your hobbies?" Height="54.368" Margin="104.688,0,103.592,18.046" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="label" Content="What are your hobbies?" Margin="10,137.147,10,113.297" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
             <Popup x:Name="popup" AllowsTransparency="True" PlacementTarget="{Binding ElementName=main}" Placement="Center" Margin="131.309,112.565,121.8,113.297">
                 <Grid Background="#FFF3A9CB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216.667" Height="79.333">
                     <Label x:Name="lbl_pause" Content="      You are paused! &#xD;&#xA;Hit space to unpause!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                 </Grid>
             </Popup>
+            <Button x:Name="button_end_interview" Content="End Interview" Height="47.179" Margin="188.441,0,188.44,19.749" VerticalAlignment="Bottom" Click="button_end_interview_click"/>
+            <Button x:Name="button_next_question" Content="Next Question!" HorizontalAlignment="Right" Height="46.123" Margin="0,61.442,29.35,0" VerticalAlignment="Top" Width="92.45" Click="button_next_question_click"/>
         </Grid>
     </Viewbox>
 </Window>
