@@ -13,6 +13,7 @@
             <Button x:Name="button_options" Content="Options" HorizontalAlignment="Left" Height="39.498" Margin="116.027,89.969,0,0" VerticalAlignment="Top" Width="120.689"/>
             <Button x:Name="button_questions" Content="Questions" HorizontalAlignment="Left" Margin="116.027,155.252,0,155.251" Width="120.689"/>
             <Button x:Name="button_history" Content="History" HorizontalAlignment="Left" Height="39.498" Margin="116.027,0,0,89.968" VerticalAlignment="Bottom" Width="120.689"/>
+            <Image x:Name="image" Source="Podium_Hor_Digital_LG_Black.jpeg" Height="36" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="96"/>
         </Grid>
     </Viewbox>
 </Window>

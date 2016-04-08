@@ -36,7 +36,7 @@
             /// <summary> Current status text to display </summary>
             private string statusText = null;
 
-            private string[] questions = new string[] { "Hello?", "What?", "Am?", "I?", "Doing?", "Here?" };
+            private string[] questions = new string[] { "Tell me a bit about yourself.", "Tell me about your educational background.", "What are your weaknesses?", "Describe yourself using 3 words.", "How would your friends describe you?" };
             private int question_index;
 
             /// <summary> List of gesture detectors, there will be one detector created for each potential body (max of 6) </summary>
@@ -253,16 +253,16 @@
                     switch (num_detected)
                     {
                         case 0:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.LawnGreen);
+                            this.rect_feedback.Fill = new SolidColorBrush(Colors.DarkGreen);
                             break;
                         case 1:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Wheat);
+                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Yellow);
                             break;
                         case 2:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Coral);
+                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
                             break;
                         case 3:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Tomato);
+                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
                             break;
                     }
                 }
@@ -281,8 +281,9 @@
             }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.setScore(this.gestureDetector.GestureResultView.Overall_Score);
-            this.Close();
+            
             window.Show();
+            this.Close();
         }
 
         private void button_next_question_click(object sender, RoutedEventArgs e)

@@ -34,8 +34,9 @@ namespace WpfApplication2
                 window.WindowState = WindowState.Maximized;
             }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Close();
+            
             window.Show();
+            this.Close();
         }
 
     }
