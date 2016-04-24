@@ -15,7 +15,9 @@
     using System.Windows.Shapes;
     using System.ComponentModel;
     using Microsoft.Kinect;
+    using System.Media;
     using System.Windows.Threading;
+    
 
     namespace WpfApplication2
     {
@@ -42,6 +44,8 @@
             /// <summary> List of gesture detectors, there will be one detector created for each potential body (max of 6) </summary>
             private GestureDetector gestureDetector = null;
 
+            private MediaPlayer mplayer;
+
             private DispatcherTimer timer;
             private int counter = 0;
             private bool paused = false;
@@ -50,6 +54,7 @@
             {
                 question_index = 0;
 
+                mplayer = new MediaPlayer();
                 timer = new DispatcherTimer();
                 timer.Interval = TimeSpan.FromSeconds(1);
                 timer.Tick += timer_Tick;
@@ -91,6 +96,8 @@
                 //Grid.SetColumn(contentControl, 0);
                 //Grid.SetRow(contentControl, 0);
                 //this.contentGrid.Children.Add(contentControl);
+
+                play_audio(question_index);
             }
 
             private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -298,6 +305,37 @@
             {
                 //question_index = question_index % questions.Length;
                 this.label.Content = questions[question_index];
+                play_audio(question_index);
+            }
+
+        }
+
+        private void play_audio(int question_index)
+        {
+            if(question_index == 0)
+            {
+                mplayer.Open(new Uri(@"../../sounds/hobbies.mp3", UriKind.Relative));
+                mplayer.Play();
+            }
+            else if(question_index == 1)
+            {
+                mplayer.Open(new Uri(@"../../sounds/education.mp3", UriKind.Relative));
+                mplayer.Play();
+            }
+            else if (question_index == 2)
+            {
+                mplayer.Open(new Uri(@"../../sounds/weakness.mp3", UriKind.Relative));
+                mplayer.Play();
+            }
+            else if (question_index == 3)
+            {
+                mplayer.Open(new Uri(@"../../sounds/three.mp3", UriKind.Relative));
+                mplayer.Play();
+            }
+            else if (question_index == 4)
+            {
+                mplayer.Open(new Uri(@"../../sounds/friends.mp3", UriKind.Relative));
+                mplayer.Play();
             }
         }
     }

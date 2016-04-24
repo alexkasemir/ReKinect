@@ -32,8 +32,6 @@ namespace WpfApplication2
             score = newScore;
             this.label_score.Content = score;
         }
-
-
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("hello");
@@ -54,6 +52,20 @@ namespace WpfApplication2
             }
         }
 
+        private void button_end_interview_click(object sender, RoutedEventArgs e)
+        {
+            HomeWindow window = new HomeWindow();
+            window.Width = this.ActualWidth;
+            window.Height = this.ActualHeight;
+            if (this.WindowState == WindowState.Maximized)
+            {
+                window.WindowState = WindowState.Maximized;
+            }
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            window.Show();
+            this.Close();
+        }
     }
 
 }
