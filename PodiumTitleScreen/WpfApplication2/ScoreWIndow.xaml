@@ -8,6 +8,7 @@
         Title="ScoreWindow" Height="350" Width="525">
     <Viewbox StretchDirection="Both" Stretch="Uniform">
         <Grid Width="419.258">
+            <Button x:Name="button_end_interview" Content="Go Back" Height="35" Margin="155,0,152.258,21" VerticalAlignment="Bottom" Click="button_end_interview_click"/>
             <Label x:Name="label_goodjob" Content="Great Job Friend!" Height="64.693" Margin="0,19.919,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF4C77D1"/>
             <Label x:Name="label_score_text" Content="Your score:" Margin="0,74.658,0,0" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Height="51.897" VerticalAlignment="Top"/>
             <Label x:Name="label_score" Content="xxx" Margin="0,131.555,0,85.548" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>

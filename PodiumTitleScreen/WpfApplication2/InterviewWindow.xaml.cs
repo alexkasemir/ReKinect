@@ -15,7 +15,9 @@
     using System.Windows.Shapes;
     using System.ComponentModel;
     using Microsoft.Kinect;
+    using System.Media;
     using System.Windows.Threading;
+    
 
     namespace WpfApplication2
     {
@@ -297,7 +299,12 @@
             {
                 //question_index = question_index % questions.Length;
                 this.label.Content = questions[question_index];
+                MediaPlayer mplayer = new MediaPlayer();
+                mplayer.Open(new Uri(@"../../sounds/hobbies.wav", UriKind.Relative));
+                mplayer.Play();
+
             }
+
         }
     }
 }
