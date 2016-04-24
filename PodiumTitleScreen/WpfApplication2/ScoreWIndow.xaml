@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
-        Title="ScoreWindow" Height="350" Width="525">
+        Title="ScoreWindow" Height="350" Width="525"
+        KeyDown="Window_KeyDown">
     <Viewbox StretchDirection="Both" Stretch="Uniform">
         <Grid Width="419.258">
             <Label x:Name="label_goodjob" Content="Great Job Friend!" Height="64.693" Margin="0,19.919,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF4C77D1"/>

@@ -204,7 +204,6 @@
             /// <param name="e">event arguments</param>
             private void Reader_BodyFrameArrived(object sender, BodyFrameArrivedEventArgs e)
             {
-                System.Diagnostics.Debug.WriteLine("hello");
                 bool dataReceived = false;
 
                 using (BodyFrame bodyFrame = e.FrameReference.AcquireFrame())
@@ -272,7 +271,7 @@
 
         private void button_end_interview_click(object sender, RoutedEventArgs e)
         {
-            ScoreWindow window = new ScoreWindow();
+            SelfscoreWindow window = new SelfscoreWindow();
             window.Width = this.ActualWidth;
             window.Height = this.ActualHeight;
             if (this.WindowState == WindowState.Maximized)
@@ -283,6 +282,8 @@
             window.setScore(this.gestureDetector.GestureResultView.Overall_Score);
             
             window.Show();
+            //this.MainWindow_Closing(this, null);
+            //this.kinectSensor.IsAvailableChanged =;
             this.Close();
         }
 

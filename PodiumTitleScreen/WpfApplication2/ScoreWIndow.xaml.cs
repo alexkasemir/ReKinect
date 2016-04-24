@@ -32,5 +32,28 @@ namespace WpfApplication2
             score = newScore;
             this.label_score.Content = score;
         }
+
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("hello");
+            if (e.Key == Key.R)
+            {
+                TitleWindow window = new TitleWindow();
+                window.Width = this.ActualWidth;
+                window.Height = this.ActualHeight;
+                if (this.WindowState == WindowState.Maximized)
+                {
+                    window.WindowState = WindowState.Maximized;
+                }
+                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                //window.setScore(this.gestureDetector.GestureResultView.Overall_Score);
+
+                window.Show();
+                this.Close();
+            }
+        }
+
     }
+
 }

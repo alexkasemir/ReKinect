@@ -2,8 +2,8 @@
 <GestureBuilderFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<SolutionFile>
 		<Header>
-			<Date>2015-11-14</Date>
-			<Time>14:26:38.8995669-05:00</Time>
+			<Date>2016-04-24</Date>
+			<Time>15:11:32.9749777-04:00</Time>
 			<Version>1</Version>
 			<Type>Solution</Type>
 			<ID>6b58b1f0-f34f-499c-9d1f-99888714268c</ID>
@@ -13,10 +13,28 @@
 				<Name />
 				<Content>
 					<Items>
+						<File>ArmsCrossed.vgbproj</File>
+					</Items>
+					<Items>
+						<File>ArmsCrossed.a.vgbproj</File>
+					</Items>
+					<Items>
 						<File>Leaning.vgbproj</File>
 					</Items>
 					<Items>
 						<File>Leaning.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>Pointing.vgbproj</File>
+					</Items>
+					<Items>
+						<File>Pointing.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>TiltingHead.vgbproj</File>
+					</Items>
+					<Items>
+						<File>TiltingHead.a.vgbproj</File>
 					</Items>
 					<Items>
 						<File>TouchingFace.vgbproj</File>
