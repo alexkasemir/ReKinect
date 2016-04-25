@@ -18,8 +18,22 @@
                     <Label x:Name="lbl_pause" Content="      You are paused! &#xD;&#xA;Hit space to unpause!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                 </Grid>
             </Popup>
-            <Button x:Name="button_end_interview" Content="End Interview" Height="47.179" Margin="188.441,0,188.44,19.749" VerticalAlignment="Bottom" Click="button_end_interview_click"/>
-            <Button x:Name="button_next_question" Content="Next Question!" HorizontalAlignment="Right" Height="46.123" Margin="0,61.442,29.35,0" VerticalAlignment="Top" Width="92.45" Click="button_next_question_click"/>
+            <Button x:Name="button_end_interview" Content="End Interview" Height="47.179" Margin="188.441,0,188.44,19.749" VerticalAlignment="Bottom" Click="button_end_interview_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.9,0">
+                        <GradientStop Color="#6FCCDD" Offset="0"/>
+                        <GradientStop Color="DarkBlue" Offset="5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_next_question" Content="Next Question!" HorizontalAlignment="Right" Height="46.123" Margin="0,61.442,29.35,0" VerticalAlignment="Top" Width="92.45" Click="button_next_question_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.9,0">
+                        <GradientStop Color="#6FCCDD" Offset="0"/>
+                        <GradientStop Color="DarkBlue" Offset="5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <Image x:Name="image" Source="Podium_Hor_Digital_LG_Black.jpeg" Height="36" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="96"/>
         </Grid>
     </Viewbox>

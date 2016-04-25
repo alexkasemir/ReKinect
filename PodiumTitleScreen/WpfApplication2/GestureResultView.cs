@@ -32,6 +32,8 @@ namespace WpfApplication2
         private float percent_touchingface = 0.0f;
         private float percent_leaning = 0.0f;
         private float overall_score = 0.0f;
+        public int num_gestures = 0;
+        public int num_current_gestures = 0;
 
         /// <summary> True, if the body is currently being tracked </summary>
         private bool isTracked = false;
@@ -54,6 +56,8 @@ namespace WpfApplication2
             this.Num_Frames = 0;
             this.Confidence = confidence;
             this.Overall_Score = 0;
+            this.num_gestures = 0;
+            this.num_current_gestures = 0;
         }
 
         /// <summary>
@@ -286,6 +290,16 @@ namespace WpfApplication2
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public void setNumGestures(int num)
+        {
+            this.num_gestures = num;
+        }
+
+        public void UpdateCurrentGestureCount(int num)
+        {
+           // this.numCurrentGestures = num;
         }
     }
 }

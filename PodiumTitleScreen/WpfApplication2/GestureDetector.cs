@@ -34,7 +34,7 @@ namespace WpfApplication2
         public int num_frames_leaning = 0;
         public int num_frames_touchingface = 0;
         public int num_frames = 0;
-
+        public int num_gestures = 0;
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
         /// </summary>
@@ -53,7 +53,8 @@ namespace WpfApplication2
             }
 
             this.GestureResultView = gestureResultView;
-            
+            this.GestureResultView.setNumGestures(this.num_gestures);
+            this.num_gestures = 0;
             // create the vgb source. The associated body tracking ID will be set when a valid body frame arrives from the sensor.
             this.vgbFrameSource = new VisualGestureBuilderFrameSource(kinectSensor, 0);
             this.vgbFrameSource.TrackingIdLost += this.Source_TrackingIdLost;
@@ -76,6 +77,7 @@ namespace WpfApplication2
                 foreach (Gesture gesture in database.AvailableGestures)
                 {
                     this.vgbFrameSource.AddGesture(gesture);
+                    this.num_gestures++;
                 }
             }
         }
@@ -204,6 +206,8 @@ namespace WpfApplication2
                                 }
                             }
                         }
+                        System.Diagnostics.Debug.WriteLine(this.num_gestures_detected);
+                        this.GestureResultView.UpdateCurrentGestureCount(this.num_gestures_detected);
                     }
                 }
             }

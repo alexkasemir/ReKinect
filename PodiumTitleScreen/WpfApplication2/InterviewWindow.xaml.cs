@@ -50,6 +50,10 @@
             private int counter = 0;
             private bool paused = false;
 
+            public int step = 2;
+            public int current_val = 0;
+            public int next_val = 0;
+
             public InterviewWindow()
             {
                 question_index = 0;
@@ -256,21 +260,46 @@
                         }
                     }
                     int num_detected = this.gestureDetector.num_gestures_detected;
-                    switch (num_detected)
+                    float ratio = (float)this.gestureDetector.num_gestures_detected / (float)this.gestureDetector.num_gestures;
+                    System.Diagnostics.Debug.WriteLine("Num detected: " + this.gestureDetector.num_gestures_detected);
+                    System.Diagnostics.Debug.WriteLine("Num total: " + this.gestureDetector.num_gestures);
+                    int new_val = ((int)(ratio * 255.0));
+                    next_val = new_val;
+                    if (next_val >= current_val + step)
                     {
-                        case 0:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.DarkGreen);
-                            break;
-                        case 1:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Yellow);
-                            break;
-                        case 2:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
-                            break;
-                        case 3:
-                            this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
-                            break;
+                        current_val += step;   
                     }
+                    else if (next_val > current_val)
+                    {
+                        current_val = next_val;
+                    }
+                    else if (next_val <= current_val - step)
+                    {
+                        current_val -= step;
+                    }
+                    else if (next_val < current_val)
+                    {
+                        current_val = next_val;
+                    }
+                
+                    System.Diagnostics.Debug.WriteLine("Val " + new_val);
+                    Brush brush = new SolidColorBrush(Color.FromArgb((byte)current_val, 255, 0, 0));
+                    this.rect_feedback.Fill = brush;
+                    //switch (num_detected)
+                    //{
+                    //    case 0:
+                    //        this.rect_feedback.Fill = new SolidColorBrush(Colors.DarkGreen);
+                    //        break;
+                    //    case 1:
+                    //        this.rect_feedback.Fill = new SolidColorBrush(Colors.Yellow);
+                    //        break;
+                    //    case 2:
+                    //        this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
+                    //        break;
+                    //    case 3:
+                    //        this.rect_feedback.Fill = new SolidColorBrush(Colors.Crimson);
+                    //        break;
+                    //}
                 }
             }
 

@@ -8,14 +8,17 @@
         Title="SelfscoreWindow" Height="350" Width="525">
     <Viewbox StretchDirection="Both" Stretch="Uniform">
         <Grid Width="525" Height="350">
-            <TextBox x:Name="textBox" Margin="118.457,54.501,117.88,0" TextWrapping="Wrap" Height="62.695" VerticalAlignment="Top"/>
-            <Label x:Name="label" Content="What do you feel you did well?" Height="28.974" Margin="175.025,23.147,176.331,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBox x:Name="textBox_Copy" Margin="118.457,172.311,117.88,124.137" TextWrapping="Wrap"/>
-            <Label x:Name="label_Copy" Content="What do you think you could work on?" Margin="134.65,144.287,133.111,0" HorizontalContentAlignment="Center" Height="28.974" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy1" Content="What would you give yourself for a score?" Margin="134.65,0,127.887,76.539" Height="28.974" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
-            <Button x:Name="button_getscore" Content="Get your score!" Height="41.108" Margin="138.227,0,137.871,5" VerticalAlignment="Bottom" Click="button_getscore_Click"/>
+            <TextBox x:Name="textBox" Margin="118.457,40.408,117.88,0" TextWrapping="Wrap" Height="50.865" VerticalAlignment="Top"/>
+            <Label x:Name="label" Content="What do you feel you did well?" Height="28.974" Margin="175.025,9.054,176.331,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox x:Name="textBox_Copy" Margin="118.457,136.664,117.88,159.784" TextWrapping="Wrap"/>
+            <Label x:Name="label_Copy" Content="What do you think you could work on?" Margin="134.65,108.64,133.111,0" HorizontalContentAlignment="Center" Height="28.974" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy1" Content="What would you give yourself for a score?" Margin="134.65,0,127.887,116.979" Height="28.974" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+            <Button x:Name="button_getscore" Content="Get your score!" Height="41.108" Margin="134.65,0,141.448,30.416" VerticalAlignment="Bottom" Click="button_getscore_Click"/>
             <Image x:Name="image" Source="Podium_Hor_Digital_LG_Black.jpeg" Height="36" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="96"/>
-            <Slider x:Name="slider" Height="25.431" Margin="118.457,0,117.88,51.108" VerticalAlignment="Bottom"/>
+            <DockPanel VerticalAlignment="Bottom" Margin="10,0,10,86.193">
+                <TextBox Text="{Binding ElementName=slValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                <Slider Maximum="10" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="slValue" />
+            </DockPanel>
         </Grid>
     </Viewbox>
 </Window>
