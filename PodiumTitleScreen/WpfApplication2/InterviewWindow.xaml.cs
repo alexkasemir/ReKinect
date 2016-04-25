@@ -326,22 +326,22 @@
             switch (maxIndex)
             {
                 case 0:
-                    gesture_name = "leaning forward";
+                    gesture_name = "lean forward!";
                     break;
                 case 1:
-                    gesture_name = "touching your face";
+                    gesture_name = "touch your face!";
                     break;
                 case 2:
-                    gesture_name = "crossing your arms";
+                    gesture_name = "cross your arms!";
                     break;
                 case 3:
-                    gesture_name = "pointing";
+                    gesture_name = "point at something!";
                     break;
                 case 4:
-                    gesture_name = "tilting your head";
+                    gesture_name = "tilt your head!";
                     break;
                 default:
-                    gesture_name = "nothing";
+                    gesture_name = "default";
                     break;
             }
 

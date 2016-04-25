@@ -37,6 +37,10 @@ namespace WpfApplication2
         public void setWorstGesture(string gesture_name)
         {
             worst_gesture = gesture_name;
+            if (worst_gesture != "default")
+                this.label_suggestion.Content = "Next time try to work on how much you " + worst_gesture;
+            else
+                this.label_suggestion.Content = "";
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
