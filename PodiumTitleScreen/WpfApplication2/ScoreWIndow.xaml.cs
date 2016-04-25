@@ -20,6 +20,7 @@ namespace WpfApplication2
     public partial class ScoreWindow : Window
     {
         float score;
+        string worst_gesture;
 
         public ScoreWindow()
         {
@@ -31,6 +32,11 @@ namespace WpfApplication2
         {
             score = newScore;
             this.label_score.Content = score;
+        }
+
+        public void setWorstGesture(string gesture_name)
+        {
+            worst_gesture = gesture_name;
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

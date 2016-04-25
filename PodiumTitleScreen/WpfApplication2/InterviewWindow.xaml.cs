@@ -286,7 +286,40 @@
                 window.WindowState = WindowState.Maximized;
             }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            string gesture_name = "";
+
+            int[] gestureArray = { this.gestureDetector.num_frames_leaning, this.gestureDetector.num_frames_touchingface, this.gestureDetector.num_frames_crossing, this.gestureDetector.num_frames_pointing, this.gestureDetector.num_frames_tilting };
+
+            int maxValue = gestureArray.Max();
+            int maxIndex = gestureArray.ToList().IndexOf(maxValue);
+
+            switch (maxIndex)
+            {
+                case 0:
+                    gesture_name = "leaning forward";
+                    break;
+                case 1:
+                    gesture_name = "touching your face";
+                    break;
+                case 2:
+                    gesture_name = "crossing your arms";
+                    break;
+                case 3:
+                    gesture_name = "pointing";
+                    break;
+                case 4:
+                    gesture_name = "tilting your head";
+                    break;
+                default:
+                    gesture_name = "nothing";
+                    break;
+            }
+
+
             window.setScore(this.gestureDetector.GestureResultView.Overall_Score);
+            window.setWorstGesture(gesture_name);
+
             
             window.Show();
             //this.MainWindow_Closing(this, null);

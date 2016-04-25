@@ -28,9 +28,15 @@ namespace WpfApplication2
         private bool detected = false;
         private int num_touchingface = 0;
         private int num_leaning = 0;
+        private int num_crossing = 0;
+        private int num_pointing = 0;
+        private int num_tilting = 0;
         private int num_frames = 0;
         private float percent_touchingface = 0.0f;
         private float percent_leaning = 0.0f;
+        private float percent_crossing = 0.0f;
+        private float percent_pointing = 0.0f;
+        private float percent_tilting = 0.0f;
         private float overall_score = 0.0f;
 
         /// <summary> True, if the body is currently being tracked </summary>
@@ -50,6 +56,13 @@ namespace WpfApplication2
             this.Detected = detected;
             this.Num_TouchingFace = 0;
             this.Num_Leaning = 0;
+            this.Num_Crossing = 0;
+            this.Num_Pointing = 0;
+            this.Num_Tilting = 0;
+            this.Percent_Crossing = 0;
+            this.Percent_Tilting = 0;
+            this.Percent_Leaning = 0;
+            this.Percent_Pointing = 0;
             this.Percent_TouchingFace = 0;
             this.Num_Frames = 0;
             this.Confidence = confidence;
@@ -156,6 +169,57 @@ namespace WpfApplication2
             }
         }
 
+        public int Num_Crossing
+        {
+            get
+            {
+                return this.num_crossing;
+            }
+
+            private set
+            {
+                if (this.num_crossing != value)
+                {
+                    this.num_crossing = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int Num_Pointing
+        {
+            get
+            {
+                return this.num_pointing;
+            }
+
+            private set
+            {
+                if (this.num_pointing != value)
+                {
+                    this.num_pointing = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int Num_Tilting
+        {
+            get
+            {
+                return this.num_tilting;
+            }
+
+            private set
+            {
+                if (this.num_tilting != value)
+                {
+                    this.num_tilting = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
         public float Percent_TouchingFace
         {
             get
@@ -185,6 +249,57 @@ namespace WpfApplication2
                 if (this.percent_leaning != value)
                 {
                     this.percent_leaning = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Percent_Crossing
+        {
+            get
+            {
+                return (int)this.percent_crossing;
+            }
+
+            private set
+            {
+                if (this.percent_crossing != value)
+                {
+                    this.percent_crossing = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Percent_Pointing
+        {
+            get
+            {
+                return (int)this.percent_pointing;
+            }
+
+            private set
+            {
+                if (this.percent_pointing != value)
+                {
+                    this.percent_pointing = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public float Percent_Tilting
+        {
+            get
+            {
+                return (int)this.percent_tilting;
+            }
+
+            private set
+            {
+                if (this.percent_tilting != value)
+                {
+                    this.percent_tilting = value;
                     this.NotifyPropertyChanged();
                 }
             }
@@ -251,7 +366,7 @@ namespace WpfApplication2
         /// <param name="isBodyTrackingIdValid">True, if the body associated with the GestureResultView object is still being tracked</param>
         /// <param name="isGestureDetected">True, if the discrete gesture is currently detected for the associated body</param>
         /// <param name="detectionConfidence">Confidence value for detection of the discrete gesture</param>
-        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence, int frames, int touchingface, int leaning)
+        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence, int frames, int touchingface, int leaning, int crossing, int tilting, int pointing)
         {
             this.IsTracked = isBodyTrackingIdValid;
             this.Confidence = 0.0f;
@@ -266,10 +381,16 @@ namespace WpfApplication2
                 this.Num_Frames = frames;
                 this.Num_TouchingFace = touchingface;
                 this.Num_Leaning = leaning;
+                this.Num_Crossing = crossing;
+                this.Num_Pointing = pointing;
                 if (this.Num_Frames != 0)
                 {
                     this.Percent_TouchingFace = 100 * ((float)this.Num_TouchingFace / (float)this.Num_Frames);
                     this.Percent_Leaning = 100 * ((float)this.Num_Leaning / (float)this.Num_Frames);
+                    this.Percent_Crossing = 100 * ((float)this.Num_Crossing / (float)this.Num_Frames);
+                    this.Percent_Tilting = 100 * ((float)this.Num_Tilting / (float)this.Num_Frames);
+                    this.Percent_Pointing = 100 * ((float)this.Num_Pointing / (float)this.Num_Frames);
+
                     this.Overall_Score = 100 - ((this.Percent_Leaning + this.Percent_TouchingFace) / 2);
                 }
 
@@ -289,3 +410,4 @@ namespace WpfApplication2
         }
     }
 }
+
