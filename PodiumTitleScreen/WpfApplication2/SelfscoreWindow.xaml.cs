@@ -20,6 +20,7 @@ namespace WpfApplication2
     public partial class SelfscoreWindow : Window
     {
         float score;
+        string worst_gesture;
 
         public SelfscoreWindow()
         {
@@ -39,6 +40,7 @@ namespace WpfApplication2
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             window.setScore(this.score);
+            window.setWorstGesture(this.worst_gesture);
             window.Show();
             this.Close();
         }
@@ -46,6 +48,11 @@ namespace WpfApplication2
         public void setScore(float newScore)
         {
             score = newScore;
+        }
+
+        public void setWorstGesture(string gesture_name)
+        {
+            worst_gesture = gesture_name;
         }
 
 

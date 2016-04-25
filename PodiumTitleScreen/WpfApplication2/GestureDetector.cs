@@ -33,6 +33,9 @@ namespace WpfApplication2
         public int num_gestures_detected;
         public int num_frames_leaning = 0;
         public int num_frames_touchingface = 0;
+        public int num_frames_crossing = 0;
+        public int num_frames_tilting = 0;
+        public int num_frames_pointing = 0;
         public int num_frames = 0;
         public int num_gestures = 0;
         /// <summary>
@@ -189,7 +192,7 @@ namespace WpfApplication2
                                 if (result != null)
                                 {
                                     // update the GestureResultView object with new gesture result values
-                                    this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence, this.num_frames, this.num_frames_touchingface, this.num_frames_leaning);
+                                    this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence, this.num_frames, this.num_frames_touchingface, this.num_frames_leaning, this.num_frames_crossing, this.num_frames_tilting, this.num_frames_pointing);
                                     this.num_frames++;
                                     if (result.Detected && result.Confidence > .3)
                                     {
@@ -201,6 +204,18 @@ namespace WpfApplication2
                                         if (gesture.Name == "Leaning")
                                         {
                                             this.num_frames_leaning++;
+                                        }
+                                        if (gesture.Name == "ArmsCrossed")
+                                        {
+                                            this.num_frames_crossing++;
+                                        }
+                                        if (gesture.Name == "TiltingHead")
+                                        {
+                                            this.num_frames_tilting++;
+                                        }
+                                        if (gesture.Name == "Pointing")
+                                        {
+                                            this.num_frames_pointing++;
                                         }
                                     }
                                 }
@@ -224,7 +239,7 @@ namespace WpfApplication2
         private void Source_TrackingIdLost(object sender, TrackingIdLostEventArgs e)
         {
             // update the GestureResultView object to show the 'Not Tracked' image in the UI
-             this.GestureResultView.UpdateGestureResult(false, false, 0.0f, 0, 0, 0);
+             this.GestureResultView.UpdateGestureResult(false, false, 0.0f, 0, 0, 0,0,0,0);
         }
     }
 }
